@@ -2,7 +2,7 @@
 Junior Developer Learning Path
 
 Week 1
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/local-environment
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/local-environment
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/numbers-in-csharp-local
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
@@ -14,7 +14,7 @@ Week 1
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/working-with-linq
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/attributes
 
-- [ ] https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVxKLQCHpiUWun7vlJJvUiN
+- [x] https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVxKLQCHpiUWun7vlJJvUiN
 
 Week 2
 Blazor
