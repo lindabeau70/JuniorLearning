@@ -3,16 +3,16 @@ Junior Developer Learning Path
 
 Week 1
 - [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/local-environment
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/numbers-in-csharp-local
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/introduction-to-classes
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/console-teleprompter
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/console-webapiclient
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/inheritance
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/working-with-linq
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/attributes
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/numbers-in-csharp-local
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/introduction-to-classes
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/console-teleprompter
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/console-webapiclient
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/inheritance
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/working-with-linq
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/attributes
 
 - [x] https://www.youtube.com/playlist?list=PLdo4fOcmZ0oVxKLQCHpiUWun7vlJJvUiN
 
