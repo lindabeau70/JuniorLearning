@@ -7,18 +7,25 @@ namespace AccessModifier
 
     public class AssemblyBaseClass
     {
+        
+        
+    /// <summary>
+    /// Defines how access modifiers work with differen classes
+    /// </summary>
 
         private string privateVariable = "private";
         protected string protectedVariable = "protected";
         internal string internalVariable = "internal";
         protected internal string protectedInternalVariabe = "protected internal";
         public string publicVariable = "public variable";
-
+       
+        
+ 
 
         public void TestAccess()
         {
-
-            // Accessible
+            
+            
             Console.WriteLine(privateVariable);
             Console.WriteLine(protectedVariable);
             Console.WriteLine(internalVariable);
