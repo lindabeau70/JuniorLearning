@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace DefaultConstrutor
+namespace DefaultConstructor
 {
 
 
