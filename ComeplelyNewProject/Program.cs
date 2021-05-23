@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ComeplelyNewProject
+namespace ComplelyNewProject
 {
 
     public class Student

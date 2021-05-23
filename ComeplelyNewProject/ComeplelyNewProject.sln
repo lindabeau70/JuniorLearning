@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31229.75
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComeplelyNewProject", "ComeplelyNewProject.csproj", "{F61CD7F7-4BD0-48A5-85EE-37A08C8A39ED}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ComplelyNewProject", "ComplelyNewProject.csproj", "{F61CD7F7-4BD0-48A5-85EE-37A08C8A39ED}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewClassAndObject", "..\NewClassAndObject\NewClassAndObject.csproj", "{6798810A-2EDA-470D-8459-5CC2F627BF35}"
 EndProject
