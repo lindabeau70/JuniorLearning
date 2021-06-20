@@ -1,0 +1,9 @@
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\bin\Debug\netcoreapp3.1\CalculatorLibrary.deps.json
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\bin\Debug\netcoreapp3.1\CalculatorLibrary.dll
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\bin\Debug\netcoreapp3.1\CalculatorLibrary.pdb
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\obj\Debug\netcoreapp3.1\CalculatorLibrary.csproj.AssemblyReference.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\obj\Debug\netcoreapp3.1\CalculatorLibrary.AssemblyInfoInputs.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\obj\Debug\netcoreapp3.1\CalculatorLibrary.AssemblyInfo.cs
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\obj\Debug\netcoreapp3.1\CalculatorLibrary.csproj.CoreCompileInputs.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\obj\Debug\netcoreapp3.1\CalculatorLibrary.dll
+C:\s\JuniorLearning\JuniorLearning\Calculator\CalculatorLibrary\obj\Debug\netcoreapp3.1\CalculatorLibrary.pdb
