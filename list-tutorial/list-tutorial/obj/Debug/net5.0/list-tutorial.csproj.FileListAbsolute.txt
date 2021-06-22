@@ -1,0 +1,15 @@
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\list-tutorial.exe
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\list-tutorial.deps.json
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\list-tutorial.runtimeconfig.json
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\list-tutorial.runtimeconfig.dev.json
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\list-tutorial.dll
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\ref\list-tutorial.dll
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\bin\Debug\net5.0\list-tutorial.pdb
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.GeneratedMSBuildEditorConfig.editorconfig
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.AssemblyInfoInputs.cache
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.AssemblyInfo.cs
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.csproj.CoreCompileInputs.cache
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.dll
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\ref\list-tutorial.dll
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.pdb
+C:\s\JuniorLearning\JuniorLearning\list-tutorial\list-tutorial\obj\Debug\net5.0\list-tutorial.genruntimeconfig.cache
