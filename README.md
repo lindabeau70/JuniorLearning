@@ -22,8 +22,8 @@ When completing each module below (which should be stored in a new folder, check
 Week 1
 - [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/local-environment
 - [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/numbers-in-csharp-local
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/introduction-to-classes
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/object-oriented-programming
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/console-teleprompter
