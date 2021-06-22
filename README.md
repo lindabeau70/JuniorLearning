@@ -20,8 +20,8 @@ When completing each module below (which should be stored in a new folder, check
 
 
 Week 1
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/local-environment
-- [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/numbers-in-csharp-local
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/local-environment
+- [x] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/numbers-in-csharp-local
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/branches-and-loops-local
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tour-of-csharp/tutorials/arrays-and-collections
 - [ ] https://docs.microsoft.com/en-au/dotnet/csharp/tutorials/intro-to-csharp/introduction-to-classes
