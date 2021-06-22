@@ -1,0 +1,16 @@
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\BranchesAndLoops.exe
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\BranchesAndLoops.deps.json
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\BranchesAndLoops.runtimeconfig.json
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\BranchesAndLoops.runtimeconfig.dev.json
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\BranchesAndLoops.dll
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\ref\BranchesAndLoops.dll
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\bin\Debug\net5.0\BranchesAndLoops.pdb
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.csproj.AssemblyReference.cache
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.GeneratedMSBuildEditorConfig.editorconfig
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.AssemblyInfoInputs.cache
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.AssemblyInfo.cs
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.csproj.CoreCompileInputs.cache
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.dll
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\ref\BranchesAndLoops.dll
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.pdb
+C:\s\JuniorLearning\JuniorLearning\branches-tutorial\obj\Debug\net5.0\BranchesAndLoops.genruntimeconfig.cache
