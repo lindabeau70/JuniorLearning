@@ -1,0 +1,17 @@
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.exe
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.deps.json
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.runtimeconfig.json
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.runtimeconfig.dev.json
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.dll
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Calculator.pdb
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.AssemblyReference.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfoInputs.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.AssemblyInfo.cs
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.CoreCompileInputs.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.dll
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.pdb
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.genruntimeconfig.cache
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\CalculatorLibrary.dll
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\CalculatorLibrary.pdb
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\obj\Debug\netcoreapp3.1\Calculator.csproj.CopyComplete
+C:\s\JuniorLearning\JuniorLearning\Calculator\Calculator\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
