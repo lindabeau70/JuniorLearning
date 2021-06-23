@@ -24,13 +24,21 @@ namespace Classes
             } 
         }
 
-        public BankAccount(string name, decimal initialBalance)
+        private readonly decimal minimumBalance;
+
+        public BankAccount(string name, decimal initialBalance) : this(name, initialBalance, 0) { }
+
+        public BankAccount(string name, decimal initialBalance, decimal minimumBalance)
         {
             this.Number = accountNumberSeed.ToString();
             accountNumberSeed++;
 
             this.Owner = name;
-            MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
+            this.minimumBalance = minimumBalance;
+            if (initialBalance > 0)
+            {
+                MakeDeposit(initialBalance, DateTime.Now, "Initial balance");
+            }
         }
 
         private List<Transaction> allTransactions = new List<Transaction>();
@@ -50,12 +58,31 @@ namespace Classes
             {
                 throw new ArgumentOutOfRangeException(nameof(amount), "Amount of withdrawal must be positive");
             }
-            if (Balance - amount < 0)
+            var overdraftTransaction = CheckWithdrawalLimit(Balance - amount < minimumBalance);
+            var withdrawal = new Transaction(-amount, date, note);
+            allTransactions.Add(withdrawal);
+            if (overdraftTransaction != null)
+            {
+                allTransactions.Add(overdraftTransaction);
+            }
+           
+        }
+        /// <summary>
+        /// Checking if transaction falls within the withdrawal limit - throws error if not
+        /// Virtual so can be overridden if overdrawn transaction allowed by derived class
+        /// </summary>
+        /// <param name="isOverdrawn">boolean measure of whether transaction takes balance below minimum balance allowed</param>
+        /// <returns>Transaction? - ? indicates may return a null</returns>
+        protected virtual Transaction? CheckWithdrawalLimit(bool isOverdrawn)
+        {
+            if (isOverdrawn)
             {
                 throw new InvalidOperationException("Not sufficient funds for this withdrawal");
             }
-            var withdrawal = new Transaction(-amount, date, note);
-            allTransactions.Add(withdrawal);
+            else
+            {
+                return default;     // default Transaction would be a null
+            }
         }
 
         public string GetAccountHistory()
@@ -72,5 +99,7 @@ namespace Classes
 
             return report.ToString();
         }
+
+        public virtual void PerformMonthEndTransactions() { }
     }
 }
