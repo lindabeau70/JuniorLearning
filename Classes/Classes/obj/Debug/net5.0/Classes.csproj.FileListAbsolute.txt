@@ -5,7 +5,6 @@ C:\s\JuniorLearning\JuniorLearning\Classes\Classes\bin\Debug\net5.0\Classes.runt
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\bin\Debug\net5.0\Classes.dll
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\bin\Debug\net5.0\ref\Classes.dll
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\bin\Debug\net5.0\Classes.pdb
-C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.csproj.AssemblyReference.cache
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.GeneratedMSBuildEditorConfig.editorconfig
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.AssemblyInfoInputs.cache
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.AssemblyInfo.cs
@@ -14,3 +13,4 @@ C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.dll
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\ref\Classes.dll
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.pdb
 C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.genruntimeconfig.cache
+C:\s\JuniorLearning\JuniorLearning\Classes\Classes\obj\Debug\net5.0\Classes.csprojAssemblyReference.cache
