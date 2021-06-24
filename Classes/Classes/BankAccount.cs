@@ -24,10 +24,28 @@ namespace Classes
             } 
         }
 
+        /// <summary>
+        /// Apparently the people writing this tutorial think that the credit limit for an account would never change from 
+        /// when the account is opened....  Cannot say that I would make this readonly.
+        /// </summary>
         private readonly decimal minimumBalance;
 
+        /// <summary>
+        /// Constructor when minimum Balance is not specified.
+        /// i.e. Minimum Balance is zero - i.e. not a credit account
+        /// Calls the three parameter constructor with minimumBalance set to zero
+        /// </summary>
+        /// <param name="name">Name of the account</param>
+        /// <param name="initialBalance">Opening balance for the account</param>
         public BankAccount(string name, decimal initialBalance) : this(name, initialBalance, 0) { }
 
+        /// <summary>
+        /// Constructor when minimum balance is specified
+        /// </summary>
+        /// <param name="name">Account name</param>
+        /// <param name="initialBalance">Opening balance for the account</param>
+        /// <param name="minimumBalance">Minimum allowed balance for the account.  
+        /// Zero for normal accounts.  Equals credit limit (as negative number) for credit accounts</param>
         public BankAccount(string name, decimal initialBalance, decimal minimumBalance)
         {
             this.Number = accountNumberSeed.ToString();
