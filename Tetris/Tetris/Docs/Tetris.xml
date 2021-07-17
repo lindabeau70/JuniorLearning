@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Tetris</name>
+    </assembly>
+    <members>
+        <member name="M:Tetris.Model.Cell.#ctor(System.Int32,System.Int32)">
+            <summary>
+            Cell constructor - no css details
+            </summary>
+            <param name="row">row index</param>
+            <param name="column">column index</param>
+        </member>
+        <member name="M:Tetris.Model.Cell.#ctor(System.Int32,System.Int32,System.String)">
+            <summary>
+            Cell constructor - with css details
+            </summary>
+            <param name="row">row index</param>
+            <param name="column">column index</param>
+            <param name="css">css class name</param>
+        </member>
+        <member name="T:Tetris.Model.CellCollection">
+            <summary>
+            Will be used for both the Grid and for individual tetrominos
+            Grid - only cells occupied are included in CellCollection
+            Tetrominos - has the current cells for tetromino
+            </summary>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.HasRow(System.Int32)">
+            <summary>
+            Checks if any occupied cells in given row
+            </summary>
+            <param name="row">index of row to be checked</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.HasColumn(System.Int32)">
+            <summary>
+            Checks if any occupied cells in given column
+            </summary>
+            <param name="column">index of column to be checked</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.Contains(System.Int32,System.Int32)">
+            <summary>
+            Checks if cell at given coords is occupied
+            </summary>
+            <param name="row">Row coordinate</param>
+            <param name="column">Column coordinate</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.Add(System.Int32,System.Int32)">
+            <summary>
+            To add a cell to the collection
+            </summary>
+            <param name="row">Row coordinate for cell</param>
+            <param name="column">Column coordinate for cell</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Tetris.Model.CellCollection.AddMany(System.Collections.Generic.List{Tetris.Model.Cell},System.String)" -->
+        <member name="M:Tetris.Model.CellCollection.GetAll">
+            <summary>
+            To extract list of all occupied cells
+            This is particularly relevant when adding tetromino to grid 
+            - to extract tetromino cells for adding to grid
+            </summary>
+            <returns>List of Cells</returns>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.GetCssClass(System.Int32,System.Int32)">
+            <summary>
+            Gets the CSS class of a cell
+            </summary>
+            <param name="row">Row index of cell</param>
+            <param name="column">Column index of cell</param>
+            <returns></returns>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.SetCssClass(System.Int32,System.String)">
+            <summary>
+            Reassigning css class on a row
+            Relevant for making completed row "flash" prior to removal
+            </summary>
+            <param name="row">Row index</param>
+            <param name="cssClass">css class name</param>
+        </member>
+        <member name="M:Tetris.Model.CellCollection.CollapseRows(System.Collections.Generic.List{System.Int32})">
+            <summary>
+            Remove 'passed' rows and move higher cells down to fill
+            </summary>
+            <param name="rows">List of rows to be removed</param>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:Tetris.Model.CellCollection.GetRightmost" -->
+        <!-- Badly formed XML comment ignored for member "M:Tetris.Model.CellCollection.GetLeftmost" -->
+        <!-- Badly formed XML comment ignored for member "M:Tetris.Model.CellCollection.GetLowest" -->
+        <member name="T:Tetris.Model.GameState">
+            <summary>
+            Define 3 game states
+            ToDo: check if this is right spot
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.Block">
+            <summary>
+            A square or block tetromino.  Yellow colour
+            Cells do not rotate.  Define lower-left cell as centre cell.
+            X X
+            X X
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.LeftZigZag">
+            <summary>
+            A Left skewed zig-zag tetromino. Red in colour
+            Centre cell is lower corner.  In starting orientation,
+            of left-to-right has one to right, one above and one above and left
+            X X 
+             [X]X
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.LShaped">
+            <summary>
+            A L-Shaped tetromino. Orange in colour
+            Centre cell is corner cell.  In starting orientation,
+            of left-to-right has two to left and one above
+                X
+            X X X
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.ReverseLShaped">
+            <summary>
+            A Reverse-L-Shaped tetromino. Dark blue in colour
+            Centre cell is corner cell.  In starting orientation,
+            of left-to-right has one above and two to the right
+            X
+            X X X
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.RightZigZag">
+            <summary>
+            A right skewed zig-zag tetromino. Green in colour
+            Centre cell is lower corner.  In starting orientation,
+            of left-to-right has one to left, one above and one above and right
+              X X
+            X[X]
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.TetrominoOrientation">
+            <summary>
+            Orientation of Tetromino: left-to-right,
+            up-to-down,right-to-left, down-to-up, 
+            Starts as left-to-right and as rotated clockwise
+            progresses through enum options in order listed
+            </summary>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.#ctor(Tetris.Model.Grid)">
+            <summary>
+            Base constructor for tetromino
+            </summary>
+            <param name="grid"><see cref="P:Tetris.Model.Tetrominos.Tetromino.Grid"/> as defined for game</param>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.CanMoveLeft">
+            <summary>
+            Checks if tetromino has space to move left
+            </summary>
+            <returns>True if space to move, false if blocked</returns>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.CanMoveRight">
+            <summary>
+            Checks if tetromino has space to move right
+            </summary>
+            <returns>True if space to move, false if blocked</returns>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.MoveLeft">
+            <summary>
+            Method to move tetromino left (if able)
+            </summary>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.MoveRight">
+            <summary>
+            Method to move tetromino right (if able)
+            </summary>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.CanMoveDown">
+            <summary>
+            Checks if space below for tetromino to move down
+            </summary>
+            <returns>true if space to move down, false if blocked or at base of grid</returns>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.MoveDown">
+            <summary>
+            Moves the tetromino down a space (if able)
+            </summary>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.Drop">
+            <summary>
+            Makes the tetromino drop all the way
+            </summary>
+            <returns>The score for the number of rows hard dropped through</returns>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.CanMove">
+            <summary>
+            Returns whether the tetromino has any options to move
+            </summary>
+            <returns>true if can move in any of the three directions</returns>
+        </member>
+        <member name="M:Tetris.Model.Tetrominos.Tetromino.Rotate">
+            <summary>
+            Rotate the tetromino clockwise around the centre piece
+            </summary>
+        </member>
+        <member name="T:Tetris.Model.Tetrominos.TShaped">
+            <summary>
+            A T-Shaped tetromino. Purple in colour
+            Centre cell is join of T.  In starting orientation,
+            of left-to-right has one to left, one to right and one above
+              X
+            X X X
+            </summary>
+        </member>
+        <member name="M:Tetris.Pages.TetrisPage.Delay(System.Int32)">
+            <summary>
+            Delays the game in 50ms intervals up to passed in delay "millis"
+            Or until flag set to hard drop piece
+            </summary>
+            <param name="millis">Amount to delay game in milliseconds</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

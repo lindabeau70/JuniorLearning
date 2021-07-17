@@ -1,0 +1,36 @@
+﻿@using Tetris.Model
+@using Tetris.Model.Tetrominos
+
+@{
+        //default is blank string for empty cell
+        string extraCSS = "";
+
+        if (Grid.IsStarted)
+        {
+            if (Tetromino!=null && Tetromino.CoveredCells.Contains(Row, Column))  // if inside current Tetromino
+            {
+                extraCSS = "tetris-piece " + Tetromino.CssClass;    // assign the tetromino CSS class
+            }
+
+            if (Grid.Cells.Contains(Row, Column))       // if inside occupied cell on Grid
+            {
+                extraCSS = "tetris-piece " + Grid.Cells.GetCssClass(Row, Column);   // assign the occupied cell's CSS class
+            }
+        }
+    }
+
+<div id="@(Row + "-" + Column)" class="tetris-cell @extraCSS"></div>
+
+@code {
+    [Parameter]
+    public int Row { get; set; }
+
+    [Parameter]
+    public int Column { get; set; }
+
+    [Parameter]
+    public Tetromino Tetromino { get; set; }
+
+    [Parameter]
+    public Grid Grid { get; set; }
+}

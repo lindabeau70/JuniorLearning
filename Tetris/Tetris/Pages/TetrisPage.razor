@@ -1,0 +1,370 @@
+﻿@page "/tetris"
+@using Tetris.Model
+@using Tetris.Model.Tetrominos
+@inject IJSRuntime _jsRuntime
+
+
+<PageTitle Title="Tetris" />
+
+<audio id="theme" src="/sounds/tetris-theme.ogg" preload="auto" loop="loop" />
+
+<div class="row">
+    <div class="col">
+        @if (grid.State == GameState.NotStarted)
+        {
+            <button @onclick="RunGame"
+                    class="btn btn-primary">
+                Start!
+            </button>
+        }
+        @if (grid.State == GameState.GameOver)
+        {
+            <button @onclick="NewGame" class="btn btn-primary">
+                New Game?
+            </button>
+        }
+        @if (grid.IsStarted)
+        {
+            <label for="playAudio">
+                <input id="playAudio" type="checkbox"
+                       @bind="playAudio" disabled />
+                Play Music
+            </label>
+        }
+    </div>
+</div>
+
+
+<div class="row">
+
+    <div class="col">
+
+        <div class="tetris-container" tabindex="0" @ref="gameBoardDiv" @onkeydown="KeyDown">
+
+            @for (int i = grid.Height; i >= 1; i--)
+            {
+                <div class="tetris-row">
+
+                    @for (int j = 1; j <= grid.Width; j++)
+                    {
+
+                        <GridCell Row="i"
+                                  Column="j"
+                                  Tetromino="currentTetromino"
+                                  Grid="grid" />
+                    }
+                </div>
+            }
+        </div>
+    </div>
+    <div class="col">
+        @if (grid.IsStarted)
+        {
+            <div class="row">
+                <div class="col">
+                    <h2>Upcoming Pieces</h2>
+                </div>
+            </div>
+            <TetrominoDisplay Style="nextStyle" />
+            <TetrominoDisplay Style="secondNextStyle" />
+            <TetrominoDisplay Style="thirdNextStyle" />
+            <div class="row">
+                <div class="col">
+                    <h3>Controls</h3>
+                    <span>&#8592;</span> / <span>&#8594;</span> Move Tetromino<br />
+                    <span>&#8593;</span> : Rotate Tetromino<br />
+                    <span>&#8595;</span> / <span>Space</span>: Drop Tetromino<br />
+                    <span>M</span>: Toggle Audio
+                </div>
+            </div>
+        }
+    </div>
+    <div class="col">
+        <div class="row">
+            <div class="col">
+                <h2>Score: @score</h2>
+                <span>Previous High Score: @previousHighScore</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <h2>Level: @level</h2>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    Grid grid = new Grid();
+
+    // Create instance of TetrominoGenerator to use for generating new tetrominos
+    TetromoinoGenerator generator = new TetromoinoGenerator();
+
+    // For current in use Tetromino
+    Tetromino currentTetromino;
+
+    // For upcoming tetrominos
+    TetrominoStyle nextStyle;
+    TetrominoStyle secondNextStyle;
+    TetrominoStyle thirdNextStyle;
+
+    // Standard delay before dropping the current piece by one row
+    int standardDelay = 1000;       // is decreased with every increase in level
+
+    // Flag to be set if player "hard drops" tetromino
+    bool skipDelay = false;
+
+    // The level increases for each 4000 points scored.
+    int level = 1;
+    int score = 0;
+    int previousHighScore = 0;
+    string previousScoreCookieValue = "Nothing";
+
+    // Reference to the game board for focus etc - set by @ref attribute
+    protected ElementReference gameBoardDiv;
+
+    // Flag for playing audo - toggle state with "M" key
+    bool playAudio = true;
+
+    protected override async Task OnInitializedAsync()
+    {
+        // Get previous high score cookie if one exists
+        previousScoreCookieValue = await _jsRuntime.InvokeAsync<string>("ReadCookie", "tetrisHighScore");
+
+        // Update previousHighScore variable with retrieved value (if found)
+        bool hasHighScore = int.TryParse(previousScoreCookieValue, out previousHighScore);
+    }
+
+
+    public async Task RunGame()
+    {
+        // Start playing the theme music
+        if (playAudio)
+            await _jsRuntime.InvokeAsync<string>("PlayAudio", "theme");
+
+        // Start playing the game
+        grid.State = GameState.Playing;
+
+        // Focus browser on the board div
+        await _jsRuntime.InvokeVoidAsync("SetFocusToElement", gameBoardDiv);
+
+        nextStyle = generator.Next();
+        secondNextStyle = generator.Next(nextStyle);
+        thirdNextStyle = generator.Next(nextStyle, secondNextStyle);
+
+        // Where there are no pieces in row 21 or greater of grid..
+        while (!grid.Cells.HasRow(21))
+        {
+            // Create Tetromino from next in line style
+            currentTetromino = generator.CreateFromStyle(nextStyle, grid);
+            // Move styles up queue and generate third in line style
+            nextStyle = secondNextStyle;
+            secondNextStyle = thirdNextStyle;
+            thirdNextStyle = generator.Next(currentTetromino.Style, nextStyle, secondNextStyle);
+
+
+            StateHasChanged();  // calling this causes the component to be rerendered.
+
+            await RunCurrentTetromino(); // Run current tetromino until can't move anymore
+
+            // If any rows completed - remove them from the board
+            await ClearCompleteRows();
+
+            // If the score is high enough, move up level
+            LevelChange();
+
+            //TODO - Game Loop
+        }
+
+        // When pieces bank back into row 21 or greater,
+        // the game is over
+        grid.State = GameState.GameOver;
+
+        // update high score cookie if current score is larger than previous high score
+        if (score > previousHighScore)
+        {
+            await _jsRuntime.InvokeAsync<object>("WriteCookie", "tetrisHighScore", score, 14);
+            // note: 14 day expiry
+
+        }
+
+    }
+
+    public async Task RunCurrentTetromino()
+    {
+
+
+        // As long as the tetromino can still move down...
+        while (currentTetromino.CanMoveDown())
+        {
+            // Wait for standard delay
+            await Delay(standardDelay);
+
+            // Move tetromino down one row
+            currentTetromino.MoveDown();
+
+            // Update the display
+            StateHasChanged();
+
+            // If at bottom - give grace period to still move sideways if possible
+            if (!currentTetromino.CanMoveDown() && currentTetromino.CanMove())
+                await Delay(500);
+        }
+
+        // When cannot move down any further, solidify the tetromino
+        // by adding its covered squares to the board's cells
+        grid.Cells.AddMany(currentTetromino.CoveredCells.GetAll(), currentTetromino.CssClass);
+    }
+
+    /// <summary>
+    /// Delays the game in 50ms intervals up to passed in delay "millis"
+    /// Or until flag set to hard drop piece
+    /// </summary>
+    /// <param name="millis">Amount to delay game in milliseconds</param>
+    /// <returns></returns>
+    public async Task Delay(int millis)
+    {
+        int totalDelay = 0;
+        while (totalDelay < millis && !skipDelay)
+        {
+            totalDelay += 50;
+            await Task.Delay(50);
+        }
+        skipDelay = false;  // reset flag
+    }
+
+    protected async Task KeyDown(KeyboardEventArgs e)
+    {
+        if (grid.State == GameState.Playing)
+        {
+            switch (e.Key)
+            {
+                case "ArrowRight":
+                    currentTetromino.MoveRight();
+                    break;
+                case "ArrowLeft":
+                    currentTetromino.MoveLeft();
+                    break;
+                case "ArrowUp":
+                    if(currentTetromino.CanMoveDown())
+                        currentTetromino.Rotate();
+                    break;
+                case "ArrowDown":
+                    skipDelay = true;
+                    if (currentTetromino.CanMoveDown())
+                        currentTetromino.MoveDown();
+                    break;
+                case " ":
+                    int addlScore = currentTetromino.Drop();  // get score for this drop
+                    skipDelay = true;                 // tell game loop to skip std delay for hard drop
+                    score += addlScore;               // add this score to total
+                    StateHasChanged();                // refresh display
+                    break;
+                case "m":
+                case "M":
+                    await ToggleAudio();
+                    break;
+            }
+            StateHasChanged();
+        }
+    }
+
+    public async Task ClearCompleteRows()
+    {
+        List<int> rowsComplete = new List<int>();
+
+        // For each row
+        for (int i = 1; i <= grid.Height; i++)
+        {
+            // if every cell in row filled...
+            if (grid.Cells.GetAllInRow(i).Count == grid.Width)
+            {
+                // Add the animation for "complete' via CCS Class
+                grid.Cells.SetCssClass(i, "tetris-clear-row");
+
+                // Add to list of complete rows
+                rowsComplete.Add(i);
+            }
+        }
+
+        // If there are any complete rows
+        if (rowsComplete.Any())
+        {
+            // Refresh to show animation
+            StateHasChanged();
+
+            // Collapse down
+            grid.Cells.CollapseRows(rowsComplete);
+
+            // Calculate score for the completed row(s)
+            switch (rowsComplete.Count)
+            {
+                case 1:
+                    score += 40 * level;
+                    break;
+                case 2:
+                    score += 100 * level;
+                    break;
+                case 3:
+                    score += 300 * level;
+                    break;
+                case 4:
+                    score += 1200 * level;
+                    break;
+            }
+
+            // Delay for animation
+            await Task.Delay(1000);
+        }
+        grid.State = GameState.Playing;
+    }
+
+    public void LevelChange()
+    {
+        int levelCount = 1;
+        int scoreCopy = score;
+
+        // count how many levels achieved given score
+        while (scoreCopy > 1000)
+        {
+            levelCount++;
+            scoreCopy -= 1000;
+        }
+
+        // compare calculated level to current level and adjust if needed
+        if (levelCount != level)  // if gone up...
+        {
+            // reduce standard delay for new level achieved
+            // reduction of 100ms for each extra level
+            standardDelay = 1000 - (levelCount - 1) * 100;
+
+            // and adjust the level to newly achieved level
+            level = levelCount;
+        }
+    }
+
+    public async Task ToggleAudio()
+    {
+        playAudio = !playAudio;
+
+        if (playAudio)
+            await _jsRuntime.InvokeAsync<string>("PlayAudio", "theme");
+        else
+            await _jsRuntime.InvokeAsync<string>("PauseAudio", "theme");
+    }
+
+    public void NewGame()
+    {
+        grid = new Grid();
+        generator = new TetromoinoGenerator();
+        currentTetromino = null;
+        level = 1;
+
+        // if previous game beat high score,
+        // update high score
+        if(score > previousHighScore)
+            previousHighScore = score;
+
+        score = 0;
+    }
+}
