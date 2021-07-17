@@ -143,7 +143,7 @@ namespace Tetris.Model
         /// <summary>
         /// Return list of rightmost cell for each row occupied in collection
         /// </summary>
-        /// <returns><see cref="List<Cell>" /></returns>
+        /// <returns><see cref="List{Cell}" /></returns>
         public List<Cell> GetRightmost()
         {
             List<Cell> cells = new List<Cell>();
